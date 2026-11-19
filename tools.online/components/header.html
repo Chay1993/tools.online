@@ -1,0 +1,17 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <a data-root-href="index.html" href="index.html" class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md">
+      <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+    </div>
+    <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Tools<span class="text-sky-600">.online</span></span>
+  </a>
+  <div class="flex items-center gap-3">
+    <button type="button" onclick="openDonateModal()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-900 rounded-xl hover:bg-amber-500/20 transition-colors">
+      <i data-lucide="coffee" class="w-3.5 h-3.5"></i> สนับสนุนเรา
+    </button>
+    <button type="button" onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700" title="สลับโหมดมืด/สว่าง">
+      <i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-400" style="display:none;"></i>
+      <i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-700" style="display:block;"></i>
+    </button>
+  </div>
+</div>

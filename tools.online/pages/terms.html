@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ข้อกำหนดการใช้งาน (Terms of Service) - Tools.online</title>
+  <meta name="description" content="ข้อกำหนดและเงื่อนไขการใช้งานเครื่องมือคำนวณออนไลน์บน Tools.online รวมถึงข้อจำกัดความรับผิดชอบ">
+  <link rel="canonical" href="https://tools.online/pages/terms.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Prompt', 'Inter', 'sans-serif'] }, colors: { brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 700: '#075985' } } } } };
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+  </script>
+</head>
+<body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
+
+  <header id="site-header"></header>
+
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <span class="text-slate-500 dark:text-slate-400">ข้อกำหนดการใช้งาน</span>
+    </nav>
+
+    <!-- พื้นที่โฆษณา -->
+    <div class="p-2"><!-- พื้นที่โฆษณา --></div>
+
+    <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
+      <h1 class="text-2xl font-bold text-slate-900 dark:text-white">ข้อกำหนดการใช้งาน (Terms of Service)</h1>
+      <p>การใช้งานเว็บไซต์ <strong>Tools.online</strong> ถือว่าผู้ใช้งานยอมรับข้อกำหนดและเงื่อนไขดังต่อไปนี้</p>
+
+      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">1. วัตถุประสงค์ของเครื่องมือ</h2>
+      <p>เครื่องมือคำนวณและแปลงหน่วยทั้งหมดบนเว็บไซต์จัดทำขึ้นเพื่อเป็นตัวช่วยคำนวณเบื้องต้นและการวางแผนทั่วไป เช่น การแปลงหน่วยที่ดิน การประมาณการ BTU แอร์ หรือการคำนวณค่างวดและภาษี</p>
+
+      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">2. การปฏิเสธความรับผิดชอบ</h2>
+      <p>แม้ทีมงานจะพยายามตรวจสอบสูตรและตรรกะการคำนวณให้ถูกต้อง แต่เงื่อนไขจริงทางกฎหมาย สัญญาสินเชื่อ อัตราดอกเบี้ย หรือการออกแบบทางวิศวกรรมอาจมีรายละเอียดเฉพาะ ผู้ใช้งานควรตรวจสอบกับผู้เชี่ยวชาญหรือหน่วยงานที่เกี่ยวข้องก่อนตัดสินใจสำคัญ ทีมงานไม่รับผิดชอบต่อความเสียหายหรือความสูญเสียใดๆ ที่เกิดจากการนำผลลัพธ์ไปใช้งาน</p>
+
+      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">3. การเปลี่ยนแปลงบริการ</h2>
+      <p>เราขอสงวนสิทธิ์ในการปรับปรุง เพิ่มเติม หรือยกเลิกเครื่องมือและเนื้อหาบางส่วนโดยไม่ต้องแจ้งให้ทราบล่วงหน้า</p>
+    </article>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>
