@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ติดต่อเรา (Contact Us) - Tools.online</title>
+  <meta name="description" content="ติดต่อทีมงาน Tools.online เพื่อแจ้งปัญหาการใช้งาน เสนอแนะเครื่องมือใหม่ หรือสอบถามข้อมูลทั่วไป">
+  <link rel="canonical" href="https://tools.online/pages/contact.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Prompt', 'Inter', 'sans-serif'] }, colors: { brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 700: '#075985' } } } } };
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+  </script>
+</head>
+<body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
+
+  <header id="site-header"></header>
+
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <span class="text-slate-500 dark:text-slate-400">ติดต่อเรา</span>
+    </nav>
+
+    <!-- พื้นที่โฆษณา -->
+    <div class="p-2"><!-- พื้นที่โฆษณา --></div>
+
+    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-6">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-900 dark:text-white">ติดต่อเรา (Contact Us)</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">พบจุดผิดพลาดของสูตรคำนวณ หรืออยากแนะนำเครื่องมือใหม่ๆ สามารถส่งข้อความถึงเราได้ครับ</p>
+      </div>
+
+      <div class="p-4 bg-slate-50 dark:bg-slate-800/70 rounded-xl border border-slate-200 dark:border-slate-700 text-sm">
+        <p class="font-semibold text-slate-800 dark:text-slate-100">ช่องทางติดต่อโดยตรง</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">อีเมลติดต่อ: <span class="font-medium text-brand-600 dark:text-brand-400">contact@tools.online</span> (เปลี่ยนเป็นที่อยู่อีเมลจริงของคุณก่อนเปิดใช้งาน)</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); document.getElementById('contact-status').classList.remove('hidden'); this.reset();" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="c-name" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">ชื่อของคุณ</label>
+            <input type="text" id="c-name" required placeholder="ระบุชื่อ" class="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none">
+          </div>
+          <div>
+            <label for="c-email" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">อีเมลสำหรับติดต่อกลับ</label>
+            <input type="email" id="c-email" required placeholder="name@example.com" class="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none">
+          </div>
+        </div>
+        <div>
+          <label for="c-msg" class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">ข้อความ / ข้อเสนอแนะ</label>
+          <textarea id="c-msg" rows="4" required placeholder="พิมพ์รายละเอียดที่ต้องการแจ้ง..." class="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"></textarea>
+        </div>
+        <button type="submit" class="px-5 py-2.5 text-sm font-medium bg-brand-600 text-white rounded-xl hover:bg-brand-700 transition-colors">ส่งข้อความ</button>
+        <p id="contact-status" class="hidden text-xs text-emerald-600 dark:text-emerald-400">บันทึกข้อความในหน้าตัวอย่างเรียบร้อยแล้ว (หากต้องการรับข้อความจริง สามารถเชื่อมต่อ Formspree หรือ Cloudflare Worker เพิ่มเติมได้)</p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>
