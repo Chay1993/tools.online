@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วิธีคำนวณ VAT 7% และส่วนลดสินค้า แบบบวกเพิ่ม ถอด VAT และลดซ้อน - Tools.online</title>
+  <meta name="description" content="คู่มือคำนวณ VAT 7% ทั้งแบบบวกเพิ่มและถอด VAT ออกจากราคารวม พร้อมวิธีคิดส่วนลดและส่วนลดซ้อน พร้อมลิงก์เครื่องคำนวณ VAT 7% และส่วนลด">
+  <link rel="canonical" href="https://tools.online/guides/vat-discount-guide.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Prompt', 'Inter', 'sans-serif'] }, colors: { brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 700: '#075985' } } } } };
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+  </script>
+</head>
+<body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
+
+  <header id="site-header"></header>
+
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <span class="text-slate-500 dark:text-slate-400">คู่มือ & บทความ</span>
+    </nav>
+
+    <!-- พื้นที่โฆษณา -->
+    <div class="p-2"><!-- พื้นที่โฆษณา --></div>
+
+    <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
+      <h1 class="text-2xl font-bold text-slate-900 dark:text-white">วิธีคำนวณ VAT 7% และส่วนลดสินค้า</h1>
+      <p><strong>สรุปสั้นๆ:</strong> การบวก VAT 7% เพิ่มจากราคาก่อนภาษีให้คูณ <strong>1.07</strong> ส่วนการถอด VAT ออกจากราคารวมภาษีให้หารด้วย <strong>1.07</strong> เพื่อหาราคาก่อน VAT (ห้ามคูณ 0.07 จากราคารวมตรงๆ)</p>
+
+      <div class="p-4 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <span class="text-xs font-medium text-sky-900 dark:text-sky-200">คำนวณส่วนลดและ VAT 7% แบบรวดเร็วทันที</span>
+        <a href="../tools/vat-discount-calc.html" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold bg-brand-600 text-white rounded-xl hover:bg-brand-700">เปิดเครื่องคำนวณ VAT & ส่วนลด</a>
+      </div>
+
+      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตารางสูตรคำนวณ VAT 7% และส่วนลด</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white">
+              <th class="py-2 pr-4">กรณีใช้งาน</th>
+              <th class="py-2 pr-4">สูตรคำนวณ</th>
+              <th class="py-2">ตัวอย่าง (ราคาตั้งต้น 1,000 บาท)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+            <tr>
+              <td class="py-2 pr-4">บวก VAT 7% เพิ่ม</td>
+              <td class="py-2 pr-4">ราคา × 1.07</td>
+              <td class="py-2">1,000 × 1.07 = 1,070 บาท (VAT 70 บาท)</td>
+            </tr>
+            <tr>
+              <td class="py-2 pr-4">ถอด VAT 7% (จากราคารวม)</td>
+              <td class="py-2 pr-4">ราคารวม ÷ 1.07</td>
+              <td class="py-2">1,070 ÷ 1.07 = 1,000 บาท (VAT 70 บาท)</td>
+            </tr>
+            <tr>
+              <td class="py-2 pr-4">คิดส่วนลดเป็นเปอร์เซ็นต์</td>
+              <td class="py-2 pr-4">ราคา × (1 - ส่วนลด/100)</td>
+              <td class="py-2">ลด 20% → 1,000 × 0.8 = 800 บาท</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตัวอย่างการคิดส่วนลดซ้อนและการบวก VAT</h2>
+      <p>สมมติสินค้าลด <strong>20%</strong> แล้วลดเพิ่มอีก <strong>10%</strong> จากราคาหลังลดครั้งแรก ให้คำนวณเป็นขั้น: 1,000 × 0.8 = 800 บาท แล้วนำ 800 × 0.9 = <strong>720 บาท</strong> (ไม่ใช่ลดรวม 30% ซึ่งจะได้ 700 บาท) หลังจากได้ราคาสุทธิแล้วจึงค่อยคำนวณ VAT ตามเงื่อนไขของบิลหรือใบกำกับภาษีครับ</p>
+
+      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ข้อควรระวัง</h2>
+      <p>ในการออกใบกำกับภาษีหรือทำบัญชีจริง ควรตรวจสอบว่ายอดส่วนลดหักก่อนหรือหลังคำนวณ VAT รวมถึงเศษทศนิยมจากการปัดเศษของแต่ละรายการตามระบบบัญชีที่ใช้งานครับ</p>
+    </article>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>
