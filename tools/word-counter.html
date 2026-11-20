@@ -3,67 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>โปรแกรมนับจำนวนคำ นับตัวอักษร นับบรรทัด ออนไลน์ฟรี - Tools.online</title>
-  <meta name="description" content="เครื่องมือนับจำนวนคำ ตัวอักษร และบรรทัดของข้อความภาษาไทยและอังกฤษแบบเรียลไทม์ ใช้งานฟรี 100%">
-  <link rel="canonical" href="[https://tools.online/tools/word-counter.html](https://tools.online/tools/word-counter.html)">
-  <script type="application/ld+json">
-  {"@context": "[https://schema.org](https://schema.org)", "@type": "WebApplication", "name": "นับจำนวนคำและอักขระ", "url": "[https://tools.online/tools/word-counter.html](https://tools.online/tools/word-counter.html)", "applicationCategory": "DeveloperApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "THB"}}
-  </script>
-  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-  <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-  <script src="[https://unpkg.com/lucide@latest](https://unpkg.com/lucide@latest)"></script>
+  <title>นับคำ นับตัวอักษร และเวลาอ่าน - Tools.online</title>
+  <meta name="description" content="นับจำนวนคำ จำนวนตัวอักษร เว้นวรรคและไม่เว้นวรรค บรรทัด และเวลาอ่านโดยประมาณ">
+  <link rel="canonical" href="https://tools.online/tools/word-counter.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Prompt', 'Inter', 'sans-serif'] }, colors: { brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 700: '#075985' } } } } };
     if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
   </script>
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
-  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md"><svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div><span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Tools<span class="text-sky-600">.online</span></span></a>
-      <button onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"><i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-400"></i><i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-700"></i></button>
-    </div>
-  </header>
-  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <a href="../guides/index.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">คู่มือ & บทความ</a>
+    </nav>
+
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div class="lg:col-span-8 space-y-6">
-        <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
-          <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5"><i data-lucide="arrow-left" class="w-4 h-4"></i> เครื่องมือทั้งหมด</a>
-          <div class="flex items-center gap-1.5 text-slate-400"><span>ข้อความ & คอนเทนต์</span><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i><span class="text-slate-700 dark:text-slate-200 font-medium">นับจำนวนคำ & อักขระ</span></div>
-        </nav>
-        <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
-          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
-            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center"><i data-lucide="text-cursor-input" class="w-6 h-6"></i></div>
-            <div><h1 class="text-xl font-bold text-slate-900 dark:text-white">นับจำนวนคำ & อักขระ</h1><p class="text-xs text-slate-500 dark:text-slate-400">นับจำนวนคำ ตัวอักษร บรรทัด และประเมินเวลาอ่าน</p></div>
+      <section class="lg:col-span-8 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-5">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">นับคำ นับตัวอักษร และเวลาอ่าน</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">พิมพ์หรือวางข้อความเพื่อตรวจสอบจำนวนคำ ตัวอักษร และเวลาอ่านโดยประมาณ</p>
           </div>
-          <div class="space-y-4">
-            <textarea id="wc-input" rows="6" placeholder="พิมพ์หรือวางข้อความที่นี่..." oninput="calcWordCount()" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"></textarea>
-            <div class="grid grid-cols-3 gap-3">
-              <div class="p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-center"><span id="wc-chars" class="block text-xl font-bold text-brand-600">0</span><span class="text-xs text-slate-500">ตัวอักษร</span></div>
-              <div class="p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-center"><span id="wc-words" class="block text-xl font-bold text-brand-600">0</span><span class="text-xs text-slate-500">คำ (Words)</span></div>
-              <div class="p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-center"><span id="wc-lines" class="block text-xl font-bold text-brand-600">0</span><span class="text-xs text-slate-500">บรรทัด</span></div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3.5 rounded-xl bg-brand-50 dark:bg-sky-950/40 border border-brand-100 dark:border-sky-900">
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">จำนวนคำ</div>
+              <div id="wc-words" class="text-xl font-bold text-brand-700 dark:text-sky-300 mt-0.5">0</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">อักขระ (รวมวรรค)</div>
+              <div id="wc-chars" class="text-xl font-bold text-slate-900 dark:text-white mt-0.5">0</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">อักขระ (ไม่รวมวรรค)</div>
+              <div id="wc-nospace" class="text-xl font-bold text-slate-900 dark:text-white mt-0.5">0</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">เวลาอ่านโดยประมาณ</div>
+              <div id="wc-readtime" class="text-xl font-bold text-slate-900 dark:text-white mt-0.5">< 1 นาที</div>
             </div>
           </div>
-        </section>
-        <div class="p-6 bg-slate-100 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-center text-xs text-slate-400">พื้นที่โฆษณา AdSense (In-Content)</div>
-      </div>
+
+          <textarea id="wc-text" rows="8" placeholder="วางหรือพิมพ์ข้อความที่นี่..." class="w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm leading-relaxed focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+        </div>
+      </section>
+
       <aside class="lg:col-span-4 space-y-6">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2><ul class="space-y-1.5 text-sm" id="popular-tools-list"></ul></div>
-        <div class="h-64 bg-slate-100 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl flex items-center justify-center text-xs text-slate-400 text-center">พื้นที่โฆษณา AdSense Sidebar</div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="../guides/index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
       </aside>
     </div>
   </main>
-  <footer class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-400">© 2026 Tools.online</footer>
+
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
+
   <script src="../assets/app.js"></script>
   <script>
-    function calcWordCount() {
-      const text = document.getElementById('wc-input').value;
-      document.getElementById('wc-chars').innerText = text.length.toLocaleString();
-      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-      document.getElementById('wc-words').innerText = words.toLocaleString();
-      const lines = text ? text.split(/\r\n|\r|\n/).length : 0;
-      document.getElementById('wc-lines').innerText = lines.toLocaleString();
+    const wcText = document.getElementById('wc-text');
+    function updateCounts() {
+      const val = wcText.value;
+      const chars = val.length;
+      const noSpace = val.replace(/\s+/g, '').length;
+      const words = val.trim() ? val.trim().split(/\s+/).length : 0;
+      const mins = Math.ceil(noSpace / 450);
+
+      document.getElementById('wc-words').textContent = words.toLocaleString('th-TH');
+      document.getElementById('wc-chars').textContent = chars.toLocaleString('th-TH');
+      document.getElementById('wc-nospace').textContent = noSpace.toLocaleString('th-TH');
+      document.getElementById('wc-readtime').textContent = noSpace === 0 ? '< 1 นาที' : `${Math.max(1, mins)} นาที`;
     }
+    wcText.addEventListener('input', updateCounts);
+    updateCounts();
   </script>
 </body>
 </html>
