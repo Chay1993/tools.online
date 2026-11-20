@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คำนวณเงินเดือนสุทธิ & ภาษีเบื้องต้น - Tools.online</title>
+  <meta name="description" content="ประมาณการเงินเดือนรับสุทธิหลังหักประกันสังคมและภาษีเงินได้บุคคลธรรมดาเบื้องต้น">
+  <link rel="canonical" href="https://tools.online/tools/salary-tax-calc.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Prompt', 'Inter', 'sans-serif'] }, colors: { brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 700: '#075985' } } } } };
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+  </script>
+</head>
+<body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
+
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <a href="../guides/index.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">คู่มือ & บทความ</a>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section class="lg:col-span-8 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-5">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">คำนวณเงินเดือนสุทธิ & ภาษีเบื้องต้น</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">ประมาณการเงินรับสุทธิต่อเดือนจากฐานเงินเดือนและค่าลดหย่อนพื้นฐาน</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium mb-1">เงินเดือนต่อเดือน (บาท)</label>
+              <input id="sal-monthly" type="number" min="0" step="500" value="35000" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium mb-1">หักประกันสังคมต่อเดือนสูงสุด (บาท)</label>
+              <input id="sal-sso" type="number" min="0" step="50" value="750" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-xs text-slate-500 dark:text-slate-400">ประกันสังคม/เดือน</div>
+              <div id="sal-sso-out" class="text-lg font-bold text-slate-900 dark:text-white mt-1">750 บาท</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-xs text-slate-500 dark:text-slate-400">ภาษีประมาณการ/เดือน</div>
+              <div id="sal-tax-out" class="text-lg font-bold text-slate-900 dark:text-white mt-1">0 บาท</div>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-50 dark:bg-sky-950/40 border border-brand-100 dark:border-sky-900">
+              <div class="text-xs text-slate-500 dark:text-slate-400">เงินเดือนสุทธิ/เดือน</div>
+              <div id="sal-net-out" class="text-xl font-bold text-brand-700 dark:text-sky-300 mt-1">34,250 บาท</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400">* คำนวณจากหักค่าใช้จ่าย 50% (ไม่เกิน 100,000 บาท) และลดหย่อนส่วนตัว 60,000 บาทต่อปี เป็นตัวเลขประมาณการเบื้องต้น</p>
+        </div>
+      </section>
+
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="../guides/index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
+
+  <script src="../assets/app.js"></script>
+  <script>
+    function calcAnnualTax(netIncome) {
+      if (netIncome <= 150000) return 0;
+      const brackets = [
+        { limit: 150000, rate: 0.05 },
+        { limit: 200000, rate: 0.10 },
+        { limit: 250000, rate: 0.15 },
+        { limit: 250000, rate: 0.20 },
+        { limit: 1000000, rate: 0.25 },
+        { limit: 3000000, rate: 0.30 },
+        { limit: Infinity, rate: 0.35 }
+      ];
+      let rem = netIncome - 150000;
+      let tax = 0;
+      for (const b of brackets) {
+        const chunk = Math.min(rem, b.limit);
+        tax += chunk * b.rate;
+        rem -= chunk;
+        if (rem <= 0) break;
+      }
+      return tax;
+    }
+
+    function calcSalary() {
+      const monthly = Math.max(0, parseFloat(document.getElementById('sal-monthly').value) || 0);
+      const maxSso = Math.max(0, parseFloat(document.getElementById('sal-sso').value) || 0);
+      const sso = Math.min(maxSso, Math.round(monthly * 0.05));
+
+      const annualIncome = monthly * 12;
+      const expense = Math.min(100000, annualIncome * 0.5);
+      const annualSso = sso * 12;
+      const personalAllowance = 60000;
+      const taxable = Math.max(0, annualIncome - expense - personalAllowance - annualSso);
+      const monthlyTax = calcAnnualTax(taxable) / 12;
+      const netMonthly = Math.max(0, monthly - sso - monthlyTax);
+
+      document.getElementById('sal-sso-out').textContent = `${Math.round(sso).toLocaleString('th-TH')} บาท`;
+      document.getElementById('sal-tax-out').textContent = `${Math.round(monthlyTax).toLocaleString('th-TH')} บาท`;
+      document.getElementById('sal-net-out').textContent = `${Math.round(netMonthly).toLocaleString('th-TH')} บาท`;
+    }
+
+    ['sal-monthly', 'sal-sso'].forEach(id => document.getElementById(id).addEventListener('input', calcSalary));
+    calcSalary();
+  </script>
+</body>
+</html>
