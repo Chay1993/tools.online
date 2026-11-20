@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>หารบิลค่าอาหารและค่าใช้จ่ายกลุ่ม - Tools.online</title>
+  <meta name="description" content="คำนวณหารบิลค่าอาหารหรือค่าใช้จ่ายร่วมกัน พร้อม Service Charge VAT 7% และส่วนลด">
+  <link rel="canonical" href="https://tools.online/tools/bill-split.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Prompt', 'Inter', 'sans-serif'] }, colors: { brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 700: '#075985' } } } } };
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+  </script>
+</head>
+<body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
+
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <a href="../guides/index.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">คู่มือ & บทความ</a>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section class="lg:col-span-8 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-5">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">หารบิลค่าอาหารและค่าใช้จ่ายกลุ่ม</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">คำนวณยอดต่อคนอย่างรวดเร็ว รองรับ Service Charge และ VAT</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium mb-1">ยอดบิลเริ่มต้น (บาท)</label>
+              <input id="bill-sub" type="number" min="0" step="any" value="2400" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium mb-1">จำนวนคน (คน)</label>
+              <input id="bill-people" type="number" min="1" step="1" value="4" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium mb-1">Service Charge (%)</label>
+              <input id="bill-sc" type="number" min="0" max="50" step="any" value="10" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium mb-1">VAT (%)</label>
+              <input id="bill-vat" type="number" min="0" max="50" step="any" value="7" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-brand-50 dark:bg-sky-950/40 border border-brand-100 dark:border-sky-900">
+              <div class="text-xs text-slate-500 dark:text-slate-400">ยอดจ่ายต่อคน</div>
+              <div id="bill-per-person" class="text-2xl font-bold text-brand-700 dark:text-sky-300 mt-1">706.20 บาท</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-xs text-slate-500 dark:text-slate-400">ยอดรวมทั้งบิล</div>
+              <div id="bill-grand-total" class="text-xl font-bold text-slate-900 dark:text-white mt-1">2,824.80 บาท</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="../guides/index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
+
+  <script src="../assets/app.js"></script>
+  <script>
+    function calcBill() {
+      const sub = Math.max(0, parseFloat(document.getElementById('bill-sub').value) || 0);
+      const people = Math.max(1, parseInt(document.getElementById('bill-people').value, 10) || 1);
+      const sc = Math.max(0, parseFloat(document.getElementById('bill-sc').value) || 0);
+      const vat = Math.max(0, parseFloat(document.getElementById('bill-vat').value) || 0);
+
+      const afterSc = sub * (1 + sc / 100);
+      const total = afterSc * (1 + vat / 100);
+      const perPerson = total / people;
+
+      document.getElementById('bill-per-person').textContent = `${perPerson.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท`;
+      document.getElementById('bill-grand-total').textContent = `${total.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท`;
+    }
+    ['bill-sub', 'bill-people', 'bill-sc', 'bill-vat'].forEach(id => document.getElementById(id).addEventListener('input', calcBill));
+    calcBill();
+  </script>
+</body>
+</html>
