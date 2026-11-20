@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>เกี่ยวกับเรา (About Us) - Tools.online</title>
-  <meta name="description" content="รู้จัก Tools.online ศูนย์รวมเครื่องมือคำนวณออนไลน์ฟรี ใช้งานง่าย โหลดไว ประมวลผลบนเบราว์เซอร์ 100% เพื่อช่วยให้การคำนวณในชีวิตประจำวันสะดวกรวดเร็ว">
+  <title>เกี่ยวกับเรา - Tools.online</title>
+  <meta name="description" content="ทำความรู้จัก Tools.online แหล่งรวมเครื่องมือคำนวณ แปลงหน่วย และยูทิลิตี้ออนไลน์ที่เน้นความเรียบง่าย ใช้งานเร็ว และเข้าใจง่าย">
   <link rel="canonical" href="https://tools.online/pages/about.html">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,9 +16,9 @@
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
 
-  <header id="site-header"></header>
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
 
-  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
     <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
       <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
         <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
@@ -26,26 +26,39 @@
       <span class="text-slate-500 dark:text-slate-400">เกี่ยวกับเรา</span>
     </nav>
 
-    <!-- พื้นที่โฆษณา -->
-    <div class="p-2"><!-- พื้นที่โฆษณา --></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section class="lg:col-span-8 space-y-6">
+        <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-4 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white">เกี่ยวกับ Tools.online</h1>
+          <p><strong>Tools.online</strong> พัฒนาขึ้นเพื่อรวบรวมเครื่องมือคำนวณ แปลงหน่วย และยูทิลิตี้ที่ใช้งานบ่อยในชีวิตประจำวัน งานช่าง อสังหาริมทรัพย์ และการวางแผนการเงินเบื้องต้น โดยเน้นหน้าตาที่เรียบง่าย โหลดไว และไม่ซับซ้อน</p>
+          <p>ทุกเครื่องมือออกแบบให้คำนวณได้ทันทีบนเบราว์เซอร์ พร้อมหน้าคู่มือสรุปสูตรและตัวอย่างการใช้งานจริง เพื่อให้ผู้ใช้งานเห็นที่มาของตัวเลขและนำไปตรวจสอบต่อได้สะดวก</p>
 
-    <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
-      <h1 class="text-2xl font-bold text-slate-900 dark:text-white">เกี่ยวกับ Tools.online</h1>
-      <p><strong>Tools.online</strong> พัฒนาขึ้นด้วยแนวคิดเรียบง่าย รวดเร็ว และเข้าถึงได้ทันทีโดยไม่ต้องติดตั้งแอปพลิเคชันเพิ่มเติม เราออกแบบชุดเครื่องมือคำนวณและยูทิลิตี้สำหรับการใช้งานทั่วไป ทั้งงานอสังหาริมทรัพย์ งานช่าง การเงินส่วนบุคคล และการจัดรูปแบบข้อความ</p>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">แนวทางการพัฒนา</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>ใช้งานได้ทันที:</strong> ไม่ต้องสมัครสมาชิกหรือติดตั้งโปรแกรมเพิ่มเติม</li>
+            <li><strong>โปร่งใสและเข้าใจง่าย:</strong> มีคำอธิบายสูตรและข้อควรระวังประกอบในบทความคู่มือ</li>
+            <li><strong>ปรับปรุงต่อเนื่อง:</strong> เพิ่มและปรับปรุงเครื่องมือตามคำแนะนำและการใช้งานจริง</li>
+          </ul>
+        </article>
+      </section>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">จุดเด่นของเว็บไซต์</h2>
-      <ul class="list-disc pl-5 space-y-1.5">
-        <li><strong>ใช้งานฟรี ไม่มีค่าใช้จ่าย:</strong> ทุกเครื่องมือเปิดให้ใช้งานได้ฟรีตลอดเวลา</li>
-        <li><strong>ประมวลผลบนเบราว์เซอร์:</strong> ตัวเลขและข้อความที่คุณกรอกถูกคำนวณในเบราว์เซอร์ของคุณเอง ไม่ถูกจัดเก็บถาวรบนเซิร์ฟเวอร์</li>
-        <li><strong>หน้าตาเรียบง่าย โหลดไว:</strong> แยกแต่ละเครื่องมือเป็นหน้าเฉพาะเพื่อความชัดเจนและรองรับการใช้งานทั้งบนมือถือและคอมพิวเตอร์</li>
-      </ul>
-
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">การสนับสนุนและการดำเนินงาน</h2>
-      <p>เว็บไซต์เปิดให้บริการฟรีโดยอาจมีการแสดงโฆษณาที่เหมาะสมหรือช่องทางสนับสนุนโดยสมัครใจจากผู้ใช้งาน เพื่อช่วยดูแลค่าใช้จ่ายโครงสร้างพื้นฐานและพัฒนาเครื่องมือใหม่ๆ อย่างต่อเนื่อง</p>
-    </article>
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="../guides/index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <footer id="site-footer"></footer>
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
 
   <script src="../assets/app.js"></script>
 </body>
