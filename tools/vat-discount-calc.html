@@ -3,76 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>โปรแกรมคำนวณส่วนลด และ บวก/ถอน VAT 7% ออนไลน์ฟรี - Tools.online</title>
-  <meta name="description" content="คำนวณส่วนลดเปอร์เซ็นต์สินค้า พร้อมบวกเพิ่มหรือถอนภาษีมูลค่าเพิ่ม VAT 7% ได้ทันที ใช้งานง่าย แม่นยำ ฟรี">
-  <link rel="canonical" href="[https://tools.online/tools/vat-discount-calc.html](https://tools.online/tools/vat-discount-calc.html)">
-  <script type="application/ld+json">
-  {"@context": "[https://schema.org](https://schema.org)", "@type": "WebApplication", "name": "คำนวณส่วนลดและ VAT 7%", "url": "[https://tools.online/tools/vat-discount-calc.html](https://tools.online/tools/vat-discount-calc.html)", "applicationCategory": "FinanceApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "THB"}}
-  </script>
-  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-  <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-  <script src="[https://unpkg.com/lucide@latest](https://unpkg.com/lucide@latest)"></script>
+  <title>คำนวณ VAT 7% และส่วนลด - Tools.online</title>
+  <meta name="description" content="คำนวณ VAT 7% แบบบวกเพิ่ม ถอด VAT ออกจากราคารวม คิดส่วนลดเปอร์เซ็นต์ และส่วนลดซ้อน">
+  <link rel="canonical" href="https://tools.online/tools/vat-discount-calc.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Prompt', 'Inter', 'sans-serif'] }, colors: { brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 700: '#075985' } } } } };
     if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
   </script>
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
-  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md"><svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div><span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Tools<span class="text-sky-600">.online</span></span></a>
-      <button onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"><i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-400"></i><i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-700"></i></button>
-    </div>
-  </header>
-  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <a href="../guides/vat-discount-guide.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">อ่านคู่มือ VAT & ส่วนลด</a>
+    </nav>
+
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div class="lg:col-span-8 space-y-6">
-        <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
-          <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5"><i data-lucide="arrow-left" class="w-4 h-4"></i> เครื่องมือทั้งหมด</a>
-          <div class="flex items-center gap-1.5 text-slate-400"><span>การเงิน & ชีวิตประจำวัน</span><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i><span class="text-slate-700 dark:text-slate-200 font-medium">คำนวณส่วนลด & VAT 7%</span></div>
-        </nav>
-        <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
-          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
-            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center"><i data-lucide="percent" class="w-6 h-6"></i></div>
-            <div><h1 class="text-xl font-bold text-slate-900 dark:text-white">คำนวณส่วนลด & VAT 7%</h1><p class="text-xs text-slate-500 dark:text-slate-400">คิดส่วนลดสินค้า และบวก/ถอน VAT 7% ได้ในคลิกเดียว</p></div>
+      <section class="lg:col-span-8 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-5">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">คำนวณ VAT 7% และส่วนลด</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">คำนวณส่วนลดขั้นแรก ส่วนลดซ้อน และ VAT 7% ได้ในหน้าเดียว</p>
           </div>
-          <div class="space-y-4">
-            <div class="grid grid-cols-2 gap-4">
-              <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">ราคาสินค้า (บาท)</label><input type="number" id="vd-price" placeholder="1000" oninput="calcVatDiscount()" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"></div>
-              <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">ส่วนลด (%)</label><input type="number" id="vd-disc" value="0" oninput="calcVatDiscount()" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"></div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-medium mb-1">ราคาตั้งต้น (บาท)</label>
+              <input id="vd-price" type="number" min="0" step="any" value="1000" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
             </div>
-            <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">รูปแบบ VAT 7%</label><select id="vd-mode" onchange="calcVatDiscount()" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"><option value="none">ไม่คิด VAT</option><option value="add">บวกเพิ่ม VAT 7% (Exclude VAT)</option><option value="extract">ถอน VAT 7% ออกจากราคา (Include VAT)</option></select></div>
-            <div class="p-5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl space-y-2 text-sm">
-              <div class="flex justify-between"><span class="text-slate-500">ประหยัดส่วนลดไป:</span><span id="vd-saved" class="font-semibold text-emerald-600">0.00 บาท</span></div>
-              <div class="flex justify-between"><span class="text-slate-500">ภาษีมูลค่าเพิ่ม (VAT 7%):</span><span id="vd-vat" class="font-semibold">0.00 บาท</span></div>
-              <div class="flex justify-between pt-2 border-t border-slate-200 dark:border-slate-700 text-base font-bold"><span>ราคาสุทธิ:</span><span id="vd-final" class="text-brand-600">0.00 บาท</span></div>
+            <div>
+              <label class="block text-xs font-medium mb-1">ส่วนลดแรก (%)</label>
+              <input id="vd-disc1" type="number" min="0" max="100" step="any" value="20" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium mb-1">ส่วนลดซ้อน (%)</label>
+              <input id="vd-disc2" type="number" min="0" max="100" step="any" value="10" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
             </div>
           </div>
-        </section>
-        <div class="p-6 bg-slate-100 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-center text-xs text-slate-400">พื้นที่โฆษณา AdSense (In-Content)</div>
-      </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-xs">
+            <label class="inline-flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="vd-mode" value="add" checked class="text-brand-600">
+              <span>บวก VAT 7% เพิ่มหลังหักส่วนลด</span>
+            </label>
+            <label class="inline-flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="vd-mode" value="remove" class="text-brand-600">
+              <span>ถอด VAT 7% ออกจากยอดหลังหักส่วนลด</span>
+            </label>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-xs text-slate-500 dark:text-slate-400">ยอดหลังหักส่วนลด (ก่อน VAT)</div>
+              <div id="vd-after-disc" class="text-lg font-bold text-slate-900 dark:text-white mt-1">720.00 บาท</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+              <div class="text-xs text-slate-500 dark:text-slate-400">มูลค่า VAT 7%</div>
+              <div id="vd-vat-amt" class="text-lg font-bold text-slate-900 dark:text-white mt-1">50.40 บาท</div>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-50 dark:bg-sky-950/40 border border-brand-100 dark:border-sky-900">
+              <div class="text-xs text-slate-500 dark:text-slate-400">ยอดสุทธิ</div>
+              <div id="vd-final" class="text-xl font-bold text-brand-700 dark:text-sky-300 mt-1">770.40 บาท</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <aside class="lg:col-span-4 space-y-6">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2><ul class="space-y-1.5 text-sm" id="popular-tools-list"></ul></div>
-        <div class="h-64 bg-slate-100 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl flex items-center justify-center text-xs text-slate-400 text-center">พื้นที่โฆษณา AdSense Sidebar</div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="../guides/index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
       </aside>
     </div>
   </main>
-  <footer class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-400">© 2026 Tools.online</footer>
+
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
+
   <script src="../assets/app.js"></script>
   <script>
-    function calcVatDiscount() {
-      const price = parseFloat(document.getElementById('vd-price').value) || 0;
-      const disc = parseFloat(document.getElementById('vd-disc').value) || 0;
-      const mode = document.getElementById('vd-mode').value;
-      const saved = price * (disc / 100);
-      const afterDisc = price - saved;
-      let vat = 0, finalPrice = afterDisc;
-      if (mode === 'add') { vat = afterDisc * 0.07; finalPrice = afterDisc + vat; }
-      else if (mode === 'extract') { vat = afterDisc - (afterDisc / 1.07); finalPrice = afterDisc; }
-      document.getElementById('vd-saved').innerText = saved.toFixed(2) + ' บาท';
-      document.getElementById('vd-vat').innerText = vat.toFixed(2) + ' บาท';
-      document.getElementById('vd-final').innerText = finalPrice.toFixed(2) + ' บาท';
+    function fmtBath(n) {
+      return `${n.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท`;
     }
+    function calcVatDiscount() {
+      const price = Math.max(0, parseFloat(document.getElementById('vd-price').value) || 0);
+      const d1 = Math.min(100, Math.max(0, parseFloat(document.getElementById('vd-disc1').value) || 0));
+      const d2 = Math.min(100, Math.max(0, parseFloat(document.getElementById('vd-disc2').value) || 0));
+      const mode = document.querySelector('input[name="vd-mode"]:checked').value;
+
+      const netAfterDisc = price * (1 - d1 / 100) * (1 - d2 / 100);
+      let preVat = netAfterDisc;
+      let vat = 0;
+      let total = netAfterDisc;
+
+      if (mode === 'add') {
+        preVat = netAfterDisc;
+        vat = preVat * 0.07;
+        total = preVat + vat;
+      } else {
+        preVat = netAfterDisc / 1.07;
+        vat = netAfterDisc - preVat;
+        total = netAfterDisc;
+      }
+
+      document.getElementById('vd-after-disc').textContent = fmtBath(preVat);
+      document.getElementById('vd-vat-amt').textContent = fmtBath(vat);
+      document.getElementById('vd-final').textContent = fmtBath(total);
+    }
+
+    ['vd-price', 'vd-disc1', 'vd-disc2'].forEach(id => document.getElementById(id).addEventListener('input', calcVatDiscount));
+    document.querySelectorAll('input[name="vd-mode"]').forEach(r => r.addEventListener('change', calcVatDiscount));
+    calcVatDiscount();
   </script>
 </body>
 </html>
