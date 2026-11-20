@@ -172,3 +172,12 @@ window.addEventListener('DOMContentLoaded', () => {
   renderHomeCards();
   if (window.lucide) lucide.createIcons();
 });
+
+function getBasePrefix() {
+  const p = window.location.pathname;
+  return (
+    p.includes('/tools/') ||
+    p.includes('/pages/') ||
+    p.includes('/guides/')
+  ) ? '../' : './';
+}
