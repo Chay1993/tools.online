@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tools.online - ศูนย์รวมเครื่องมือคำนวณออนไลน์ฟรี ใช้งานง่าย โหลดไว</title>
-  <meta name="description" content="รวมเครื่องมือคำนวณออนไลน์ฟรี แปลงหน่วยที่ดิน คำนวณ BTU แอร์ คำนวณค่างวดผ่อนบ้านรถ คิด VAT 7% นับคำ และสร้าง QR Code ใช้งานฟรี 100%">
+  <title>Tools.online - รวมเครื่องมือคำนวณและยูทิลิตี้ออนไลน์ฟรี</title>
+  <meta name="description" content="รวมเครื่องมือคำนวณและแปลงหน่วยใช้งานง่าย ทั้งแปลงหน่วยที่ดิน คำนวณ BTU แอร์ VAT 7% ส่วนลด ผ่อนบ้าน/รถ กระเบื้อง/ปูน หารบิล นับคำ และสร้าง QR Code">
   <link rel="canonical" href="https://tools.online/">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,47 +16,54 @@
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
 
-  <!-- HEADER -->
-  <header id="site-header" class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800"></header>
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
 
-  <!-- HERO & CATEGORY FILTER -->
-  <section class="bg-white dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 pt-8 pb-6">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">เพื่อนคู่คิดเรื่องเครื่องมือคำนวณและมินิแอป ใช้ง่าย ฟรี ไม่มีสะดุด!</h1>
-      <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">เลือกเครื่องมือที่ต้องการใช้งาน แยกหน้าชัดเจน โหลดไว ประมวลผลบนเบราว์เซอร์ 100%</p>
-
-      <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 mt-6">
-        <button onclick="filterCategory('all')" data-cat="all" class="cat-btn active px-4 py-2 text-sm font-medium rounded-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center gap-2 whitespace-nowrap"><i data-lucide="layout-grid" class="w-4 h-4 text-amber-400"></i> ทั้งหมด</button>
-        <button onclick="filterCategory('real-estate')" data-cat="real-estate" class="cat-btn px-4 py-2 text-sm font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center gap-2 whitespace-nowrap"><i data-lucide="home" class="w-4 h-4 text-emerald-500"></i> อสังหาฯ & งานช่าง</button>
-        <button onclick="filterCategory('finance')" data-cat="finance" class="cat-btn px-4 py-2 text-sm font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center gap-2 whitespace-nowrap"><i data-lucide="calculator" class="w-4 h-4 text-blue-500"></i> การเงิน & ชีวิตประจำวัน</button>
-        <button onclick="filterCategory('text')" data-cat="text" class="cat-btn px-4 py-2 text-sm font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center gap-2 whitespace-nowrap"><i data-lucide="file-text" class="w-4 h-4 text-purple-500"></i> ข้อความ & คอนเทนต์</button>
-        <button onclick="filterCategory('media')" data-cat="media" class="cat-btn px-4 py-2 text-sm font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center gap-2 whitespace-nowrap"><i data-lucide="image" class="w-4 h-4 text-rose-500"></i> ปรับภาพ & สื่อ</button>
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5">
+      <div class="max-w-2xl space-y-2">
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">รวมเครื่องมือคำนวณและยูทิลิตี้ที่ใช้งานได้จริง</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400">เปิดใช้งานได้ทันทีในเบราว์เซอร์ โครงสร้างเรียบง่าย โหลดไว พร้อมคู่มืออธิบายสูตรและวิธีคิด</p>
       </div>
-    </div>
-  </section>
 
-  <!-- MAIN CONTENT -->
-  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="mb-8 p-2"><!-- พื้นที่โฆษณา --></div>
+      <div class="relative max-w-xl">
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+        <input
+          type="search"
+          id="tool-search-input"
+          placeholder="ค้นหาเครื่องมือ เช่น ที่ดิน, BTU, VAT, ผ่อน, กระเบื้อง, หารบิล, QR..."
+          aria-label="ค้นหาเครื่องมือ"
+          class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500"
+        >
+      </div>
+    </section>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div class="lg:col-span-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="tools-cards-container"></div>
-      </div>
+      <section class="lg:col-span-8 space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-base font-bold text-slate-900 dark:text-white">เครื่องมือทั้งหมด (10 รายการ)</h2>
+          <span id="tools-count-label" class="text-xs text-slate-500 dark:text-slate-400"></span>
+        </div>
+        <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+      </section>
 
-      <!-- SIDEBAR -->
       <aside class="lg:col-span-4 space-y-6">
         <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
           <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
-          <ul class="space-y-1.5 text-sm" id="popular-tools-list"></ul>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
         </div>
-        <div class="h-64 rounded-2xl flex items-center justify-center"><!-- พื้นที่โฆษณา --></div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="guides/index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
       </aside>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer id="site-footer" class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6"></footer>
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
 
   <script src="assets/app.js"></script>
 </body>
