@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>โปรแกรมคำนวณ BTU แอร์ ขนาดห้องนอน ห้องนั่งเล่น ออนไลน์ฟรี - Tools.online</title>
-  <meta name="description" content="คำนวณขนาด BTU แอร์ที่เหมาะสมกับขนาดห้องและปัจจัยความร้อน ป้องกันแอร์ไม่เย็นหรือทำงานหนักเกินไป ใช้งานฟรี">
+  <title>คำนวณ BTU แอร์ตามขนาดห้อง - Tools.online</title>
+  <meta name="description" content="คำนวณ BTU เครื่องปรับอากาศเบื้องต้นจากขนาดห้อง กว้าง ยาว สูง ทิศทางแดด และจำนวนคน">
   <link rel="canonical" href="https://tools.online/tools/btu-calc.html">
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "WebApplication", "name": "คำนวณ BTU แอร์", "url": "https://tools.online/tools/btu-calc.html", "applicationCategory": "UtilityApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "THB"}}
-  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -18,56 +15,98 @@
   </script>
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
-  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md"><svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div><span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Tools<span class="text-sky-600">.online</span></span></a>
-      <button onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"><i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-400"></i><i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-700"></i></button>
-    </div>
-  </header>
-  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      </a>
+      <a href="../guides/btu-calculation-guide.html" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">อ่านคู่มือคำนวณ BTU</a>
+    </nav>
+
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div class="lg:col-span-8 space-y-6">
-        <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
-          <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5"><i data-lucide="arrow-left" class="w-4 h-4"></i> เครื่องมือทั้งหมด</a>
-          <div class="flex items-center gap-1.5 text-slate-400"><span>อสังหาฯ & งานช่าง</span><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i><span class="text-slate-700 dark:text-slate-200 font-medium">คำนวณ BTU แอร์</span></div>
-        </nav>
-        <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
-          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
-            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center"><i data-lucide="wind" class="w-6 h-6"></i></div>
-            <div><h1 class="text-xl font-bold text-slate-900 dark:text-white">คำนวณ BTU แอร์</h1><p class="text-xs text-slate-500 dark:text-slate-400">หาขนาด BTU แอร์ที่เหมาะสมกับขนาดห้องและปัจจัยความร้อน</p></div>
+      <section class="lg:col-span-8 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-5">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">คำนวณ BTU แอร์ตามขนาดห้อง</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">ประเมินค่า BTU เบื้องต้นเพื่อเลือกขนาดแอร์ให้เหมาะสมกับการใช้งาน</p>
           </div>
-          <div class="space-y-4">
-            <div class="grid grid-cols-2 gap-4">
-              <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">ความกว้าง (เมตร)</label><input type="number" id="btu-w" placeholder="4" oninput="calcBTU()" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"></div>
-              <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">ความยาว (เมตร)</label><input type="number" id="btu-l" placeholder="5" oninput="calcBTU()" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"></div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-medium mb-1">ความกว้างห้อง (เมตร)</label>
+              <input id="btu-w" type="number" min="1" step="0.1" value="4" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
             </div>
-            <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">ลักษณะห้องและการโดนแดด</label><select id="btu-factor" onchange="calcBTU()" class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-brand-500 focus:outline-none"><option value="700">ห้องนอน / ไม่โดนแดด (700 BTU/ตร.ม.)</option><option value="800" selected>ห้องทำงาน / โดนแดดปานกลาง (800 BTU/ตร.ม.)</option><option value="900">ห้องนั่งเล่น / โดนแดดจัด (900 BTU/ตร.ม.)</option><option value="1000">ร้านค้า / ออฟฟิศ มีคนเข้าออกบ่อย (1,000 BTU/ตร.ม.)</option></select></div>
-            <div class="mt-6 p-6 bg-gradient-to-br from-brand-500 to-brand-600 text-white rounded-2xl text-center shadow-md">
-              <span class="text-xs text-brand-100 uppercase tracking-wider block mb-1">ขนาด BTU แอร์ที่แนะนำ</span>
-              <span id="btu-result" class="text-3xl font-extrabold block">0 BTU</span>
-              <p id="btu-note" class="text-xs text-brand-100 mt-2">ระบุขนาดห้องเพื่อเริ่มคำนวณ</p>
+            <div>
+              <label class="block text-xs font-medium mb-1">ความยาวห้อง (เมตร)</label>
+              <input id="btu-l" type="number" min="1" step="0.1" value="5" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium mb-1">จำนวนคนในห้อง</label>
+              <input id="btu-people" type="number" min="1" step="1" value="2" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
             </div>
           </div>
-        </section>
-        <div class="p-6 bg-slate-100 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-center text-xs text-slate-400">พื้นที่โฆษณา AdSense (In-Content)</div>
-      </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium mb-1">ลักษณะห้อง / แดด</label>
+              <select id="btu-sun" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+                <option value="750">ห้องนอน / ไม่โดนแดดจัด (ตัวคูณ ~750)</option>
+                <option value="850" selected>ห้องทั่วไป / แดดปานกลาง (ตัวคูณ ~850)</option>
+                <option value="950">ห้องรับแขก / โดนแดดบ่ายหรือฝ้าติดหลังคา (ตัวคูณ ~950)</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button type="button" onclick="calcBtu()" class="w-full py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition-colors">คำนวณ BTU</button>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-brand-50 dark:bg-sky-950/40 border border-brand-100 dark:border-sky-900 space-y-1">
+            <div class="text-xs text-slate-500 dark:text-slate-400">BTU ที่แนะนำโดยประมาณ</div>
+            <div id="btu-result" class="text-2xl font-bold text-brand-700 dark:text-sky-300">18,800 BTU/hr</div>
+            <div id="btu-area-note" class="text-xs text-slate-600 dark:text-slate-300">พื้นที่ 20.0 ตร.ม.</div>
+          </div>
+        </div>
+      </section>
+
       <aside class="lg:col-span-4 space-y-6">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5"><h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2><ul class="space-y-1.5 text-sm" id="popular-tools-list"></ul></div>
-        <div class="h-64 bg-slate-100 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl flex items-center justify-center text-xs text-slate-400 text-center">พื้นที่โฆษณา AdSense Sidebar</div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="../guides/index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
       </aside>
     </div>
   </main>
-  <footer class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-400">© 2026 Tools.online</footer>
+
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
+
   <script src="../assets/app.js"></script>
   <script>
-    function calcBTU() {
-      const w = parseFloat(document.getElementById('btu-w').value) || 0;
-      const l = parseFloat(document.getElementById('btu-l').value) || 0;
-      const factor = parseFloat(document.getElementById('btu-factor').value);
-      const btu = Math.round(w * l * factor);
-      document.getElementById('btu-result').innerText = btu.toLocaleString() + ' BTU';
-      document.getElementById('btu-note').innerText = btu > 0 ? `คำนวณจากพื้นที่ ${(w*l).toFixed(1)} ตร.ม.` : 'ระบุขนาดห้องเพื่อเริ่มคำนวณ';
+    function calcBtu() {
+      const w = Math.max(0.5, parseFloat(document.getElementById('btu-w').value) || 0);
+      const l = Math.max(0.5, parseFloat(document.getElementById('btu-l').value) || 0);
+      const people = Math.max(1, parseInt(document.getElementById('btu-people').value, 10) || 1);
+      const factor = parseFloat(document.getElementById('btu-sun').value) || 850;
+      const area = w * l;
+      const extraPeople = Math.max(0, people - 1) * 900;
+      const totalBtu = Math.round((area * factor + extraPeople) / 100) * 100;
+      document.getElementById('btu-result').textContent = `${totalBtu.toLocaleString('th-TH')} BTU/hr`;
+      document.getElementById('btu-area-note').textContent = `พื้นที่ ${area.toFixed(1)} ตร.ม. | ผู้ใช้งาน ${people} คน`;
     }
+    ['btu-w', 'btu-l', 'btu-people', 'btu-sun'].forEach(id => {
+      document.getElementById(id).addEventListener('input', calcBtu);
+      document.getElementById(id).addEventListener('change', calcBtu);
+    });
+    calcBtu();
   </script>
 </body>
 </html>
