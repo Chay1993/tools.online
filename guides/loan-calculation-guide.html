@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>วิธีคำนวณค่างวดผ่อนบ้านและรถ ดอกเบี้ยลดต้นลดดอก vs ดอกเบี้ยคงที่ - Tools.online</title>
-  <meta name="description" content="คู่มือคำนวณค่างวดผ่อนบ้านและรถยนต์ เข้าใจความต่างของดอกเบี้ยลดต้นลดดอก (Effective Rate) และดอกเบี้ยคงที่ (Flat Rate) พร้อมตัวอย่างคำนวณและลิงก์เครื่องคำนวณค่างวด">
+  <title>วิธีคำนวณค่างวดผ่อนบ้านและรถ เบื้องต้น - Tools.online</title>
+  <meta name="description" content="เปรียบเทียบดอกเบี้ยลดต้นลดดอกกับดอกเบี้ยคงที่ Flat Rate พร้อมสูตรคำนวณค่างวดผ่อนบ้านและรถเบื้องต้น">
   <link rel="canonical" href="https://tools.online/guides/loan-calculation-guide.html">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,76 +16,62 @@
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
 
-  <header id="site-header"></header>
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
 
-  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
     <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
-      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      <a href="index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าคู่มือทั้งหมด
       </a>
-      <span class="text-slate-500 dark:text-slate-400">คู่มือ & บทความ</span>
+      <a href="../tools/loan-calc.html" class="text-brand-600 dark:text-brand-400 hover:underline font-semibold">เปิดเครื่องมือคำนวณค่างวด</a>
     </nav>
 
-    <!-- พื้นที่โฆษณา -->
-    <div class="p-2"><!-- พื้นที่โฆษณา --></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section class="lg:col-span-8 space-y-6">
+        <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
+          <div class="space-y-2">
+            <span class="text-[11px] font-medium px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full">การเงิน & ชีวิตประจำวัน</span>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white">วิธีคำนวณค่างวดผ่อนบ้านและรถ เบื้องต้น</h1>
+            <p class="text-xs text-slate-400">อัปเดตล่าสุด: 20 พฤศจิกายน 2026</p>
+          </div>
 
-    <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
-      <h1 class="text-2xl font-bold text-slate-900 dark:text-white">วิธีคำนวณค่างวดผ่อนบ้านและรถ เบื้องต้น</h1>
-      <p><strong>สรุปสั้นๆ:</strong> สินเชื่อบ้านใช้ระบบ <strong>ลดต้นลดดอก (Effective Rate)</strong> ซึ่งดอกเบี้ยจะลดลงตามเงินต้นที่จ่ายคืนแต่ละเดือน ส่วนสินเชื่อรถยนต์ส่วนใหญ่ใช้ระบบ <strong>ดอกเบี้ยคงที่ (Flat Rate)</strong> โดยคำนวณดอกเบี้ยจากเงินต้นทั้งหมดตั้งแต่วันแรกตลอดอายุสัญญา</p>
+          <p>สินเชื่อบ้านและสินเชื่อรถยนต์มีวิธีคิดดอกเบี้ยต่างกัน การเข้าใจรูปแบบดอกเบี้ยทั้ง 2 แบบจะช่วยให้ประเมินภาระรายเดือนและวางแผนโปะหนี้ได้เหมาะสมยิ่งขึ้น</p>
 
-      <div class="p-4 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <span class="text-xs font-medium text-sky-900 dark:text-sky-200">ลองคำนวณค่างวดรายเดือนและดอกเบี้ยรวมตามยอดกู้ของคุณ</span>
-        <a href="../tools/loan-calc.html" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold bg-brand-600 text-white rounded-xl hover:bg-brand-700">เปิดเครื่องคำนวณค่างวดผ่อนบ้าน/รถ</a>
-      </div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">1. แบบลดต้นลดดอก (Effective Rate) — ใช้กับสินเชื่อบ้าน</h2>
+          <p>ดอกเบี้ยจะคำนวณจาก <strong>เงินต้นคงเหลือ</strong> ในแต่ละงวด ช่วงแรกดอกเบี้ยจะสูงและค่อยๆ ลดลงเมื่อเงินต้นลดลง หากมีการจ่ายเกินค่างวด (โปะ) เงินส่วนเกินจะไปตัดเงินต้นโดยตรงทำให้ดอกเบี้ยรวมลดลง</p>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตารางเปรียบเทียบวิธีคิดดอกเบี้ยบ้านและรถ</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse text-xs">
-          <thead>
-            <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white">
-              <th class="py-2 pr-4">หัวข้อ</th>
-              <th class="py-2 pr-4">สินเชื่อบ้าน (ลดต้นลดดอก)</th>
-              <th class="py-2">สินเชื่อรถ (ดอกเบี้ยคงที่)</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-            <tr>
-              <td class="py-2 pr-4 font-medium">ฐานคิดดอกเบี้ย</td>
-              <td class="py-2 pr-4">เงินต้นคงเหลือในแต่ละงวด</td>
-              <td class="py-2">ยอดจัดไฟแนนซ์เริ่มต้นทั้งหมด</td>
-            </tr>
-            <tr>
-              <td class="py-2 pr-4 font-medium">การโปะเงินต้นเพิ่ม</td>
-              <td class="py-2 pr-4">ช่วยลดดอกเบี้ยและปิดหนี้ได้เร็วขึ้น</td>
-              <td class="py-2">ค่างวดรายเดือนคงที่ตามสัญญา (มักมีส่วนลดดอกเบี้ยเฉพาะกรณีปิดบัญชี)</td>
-            </tr>
-            <tr>
-              <td class="py-2 pr-4 font-medium">ภาษีมูลค่าเพิ่ม (VAT)</td>
-              <td class="py-2 pr-4">ไม่มี VAT ในค่างวด</td>
-              <td class="py-2">ค่างวดเช่าซื้อมี VAT 7% รวมในค่างวด</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">2. แบบดอกเบี้ยคงที่ (Flat Rate) — ใช้กับสินเชื่อรถยนต์</h2>
+          <p>ดอกเบี้ยจะคิดจาก <strong>เงินต้นตั้งต้นเต็มจำนวน</strong> ตลอดอายุสัญญา:</p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>ดอกเบี้ยรวม:</strong> <code>ยอดจัด × อัตราดอกเบี้ยต่อปี × จำนวนปี</code></li>
+            <li><strong>ค่างวดต่อเดือน:</strong> <code>(ยอดจัด + ดอกเบี้ยรวม) ÷ จำนวนงวดทั้งหมด</code></li>
+            <li><em>หมายเหตุ:</em> ค่างวดเช่าซื้อรถยนต์ทั่วไปอาจมี VAT 7% บวกเพิ่มในค่างวดตามเงื่อนไขของสถาบันการเงิน</li>
+          </ul>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตัวอย่างการคำนวณค่างวดรถยนต์ (Flat Rate)</h2>
-      <p>สมมติราคารถ <strong>600,000 บาท</strong> ดาวน์ 20% (120,000 บาท) เหลือยอดจัดไฟแนนซ์ <strong>480,000 บาท</strong> ดอกเบี้ย <strong>3% ต่อปี</strong> ผ่อน <strong>5 ปี (60 งวด)</strong>:</p>
-      <ul class="list-disc pl-5 space-y-1.5">
-        <li><strong>ดอกเบี้ยต่อปี:</strong> 480,000 × 3% = 14,400 บาท</li>
-        <li><strong>ดอกเบี้ยรวม 5 ปี:</strong> 14,400 × 5 = 72,000 บาท</li>
-        <li><strong>ยอดรวมเงินต้นและดอกเบี้ย:</strong> 480,000 + 72,000 = 552,000 บาท</li>
-        <li><strong>ค่างวดต่อเดือน (ก่อน VAT):</strong> 552,000 ÷ 60 = <strong>9,200 บาท/เดือน</strong> (หากรวม VAT 7% จะอยู่ที่ประมาณ 9,844 บาท/เดือน)</li>
-      </ul>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 dark:text-slate-400">ลองจำลองค่างวดและดอกเบี้ยรวมตามวงเงินของคุณ</span>
+            <a href="../tools/loan-calc.html" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition-colors">เปิดเครื่องมือคำนวณค่างวด</a>
+          </div>
+        </article>
+      </section>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">แนวทางการคำนวณค่างวดบ้าน (Effective Rate)</h2>
-      <p>สำหรับสินเชื่อบ้าน 1,000,000 บาท ระยะเวลาผ่อน 30 ปี มักมีเกณฑ์ประมาณการค่างวดขั้นต่ำอยู่ที่ราว <strong>6,000–7,000 บาทต่อล้านบาท</strong> (ขึ้นอยู่กับอัตราดอกเบี้ยในช่วงโปรโมชัน 3 ปีแรกและอัตราลอยตัวหลังจากนั้น) ในช่วงปีแรกๆ ค่างวดส่วนใหญ่จะถูกนำไปตัดดอกเบี้ยก่อน และสัดส่วนการตัดเงินต้นจะเพิ่มขึ้นเรื่อยๆ เมื่อเงินต้นลดลงครับ</p>
-
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ข้อควรระวังก่อนตัดสินใจกู้</h2>
-      <p>ควรประเมินความสามารถในการผ่อนชำระต่อเดือนไม่ให้เกิน <strong>35%–40% ของรายได้สุทธิ</strong> และเผื่อค่าใช้จ่ายแฝง เช่น ค่าจดจำนอง ค่าประเมินหลักทรัพย์ ประกันอัคคีภัยสำหรับบ้าน หรือค่าประกันภัยชั้น 1 และค่าบำรุงรักษาสำหรับรถยนต์ครับ</p>
-    </article>
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <footer id="site-footer"></footer>
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
 
   <script src="../assets/app.js"></script>
 </body>
