@@ -429,3 +429,12 @@ window.addEventListener('DOMContentLoaded', () => {
   bindSearchInput();
   if (window.lucide) lucide.createIcons();
 });
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
