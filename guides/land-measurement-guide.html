@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>วิธีแปลงหน่วยที่ดิน ไร่ งาน ตารางวา เป็นตารางเมตร - Tools.online</title>
-  <meta name="description" content="คู่มือแปลงหน่วยที่ดินไทย 1 ไร่ เท่ากับกี่งาน กี่ตารางวา และกี่ตารางเมตร พร้อมตัวอย่างคำนวณและลิงก์เครื่องมือแปลงหน่วยที่ดิน">
+  <meta name="description" content="คู่มือแปลงหน่วยที่ดินไทย 1 ไร่ 1 งาน 1 ตารางวา เท่ากับกี่ตารางเมตร พร้อมตารางเทียบหน่วย ตัวอย่างคำนวณจริง และข้อควรระวัง">
   <link rel="canonical" href="https://tools.online/guides/land-measurement-guide.html">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,55 +16,88 @@
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
 
-  <header id="site-header"></header>
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
 
-  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
     <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
-      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      <a href="index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าคู่มือทั้งหมด
       </a>
-      <span class="text-slate-500 dark:text-slate-400">คู่มือ & บทความ</span>
+      <a href="../tools/land-converter.html" class="text-brand-600 dark:text-brand-400 hover:underline font-semibold">เปิดเครื่องมือแปลงหน่วยที่ดิน</a>
     </nav>
 
-    <!-- พื้นที่โฆษณา -->
-    <div class="p-2"><!-- พื้นที่โฆษณา --></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section class="lg:col-span-8 space-y-6">
+        <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
+          <div class="space-y-2">
+            <span class="text-[11px] font-medium px-2.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full">อสังหาฯ & งานช่าง</span>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white">วิธีแปลงหน่วยที่ดิน ไร่ งาน ตารางวา เป็นตารางเมตร</h1>
+            <p class="text-xs text-slate-400">อัปเดตล่าสุด: 17 พฤศจิกายน 2026</p>
+          </div>
 
-    <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
-      <h1 class="text-2xl font-bold text-slate-900 dark:text-white">วิธีแปลงหน่วยที่ดิน ไร่ งาน ตารางวา เป็นตารางเมตร</h1>
-      <p><strong>สรุปสั้นๆ:</strong> ที่ดินมาตรฐานไทยกำหนดให้ <strong>1 ตารางวา = 4 ตารางเมตร</strong>, <strong>1 งาน = 100 ตารางวา</strong> (400 ตารางเมตร) และ <strong>1 ไร่ = 4 งาน</strong> (400 ตารางวา หรือ 1,600 ตารางเมตร)</p>
+          <p>การซื้อขายที่ดิน ประเมินราคา หรือออกแบบแปลนบ้านในประเทศไทยมักใช้หน่วย <strong>ไร่–งาน–ตารางวา</strong> ตามโฉนดที่ดิน แต่ในงานก่อสร้างและสถาปัตยกรรมมักใช้หน่วย <strong>ตารางเมตร (ตร.ม.)</strong> การเข้าใจอัตราส่วนมาตรฐานช่วยให้เทียบขนาดพื้นที่ได้แม่นยำ</p>
 
-      <div class="p-4 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <span class="text-xs font-medium text-sky-900 dark:text-sky-200">ไม่อยากคำนวณมือเอง? ใช้เครื่องมือคำนวณทันที</span>
-        <a href="../tools/land-converter.html" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold bg-brand-600 text-white rounded-xl hover:bg-brand-700">เปิดเครื่องแปลงหน่วยที่ดิน</a>
-      </div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตารางเทียบหน่วยที่ดินมาตรฐาน</h2>
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                <tr>
+                  <th class="px-4 py-2.5">หน่วยที่ดิน</th>
+                  <th class="px-4 py-2.5">เทียบเป็นตารางวา</th>
+                  <th class="px-4 py-2.5">เทียบเป็นตารางเมตร</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                <tr>
+                  <td class="px-4 py-2.5 font-medium text-slate-900 dark:text-white">1 ตารางวา</td>
+                  <td class="px-4 py-2.5">1 ตร.ว.</td>
+                  <td class="px-4 py-2.5">4 ตร.ม. (กว้าง 2 ม. × ยาว 2 ม.)</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5 font-medium text-slate-900 dark:text-white">1 งาน</td>
+                  <td class="px-4 py-2.5">100 ตร.ว.</td>
+                  <td class="px-4 py-2.5">400 ตร.ม.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5 font-medium text-slate-900 dark:text-white">1 ไร่</td>
+                  <td class="px-4 py-2.5">400 ตร.ว. (4 งาน)</td>
+                  <td class="px-4 py-2.5">1,600 ตร.ม.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตารางเทียบหน่วยที่ดินมาตรฐาน</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse text-xs">
-          <thead>
-            <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white">
-              <th class="py-2 pr-4">หน่วย</th>
-              <th class="py-2 pr-4">เทียบเท่าตารางวา</th>
-              <th class="py-2">เทียบเท่าตารางเมตร</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-            <tr><td class="py-2 pr-4">1 ไร่</td><td class="py-2 pr-4">400 ตร.ว.</td><td class="py-2">1,600 ตร.ม.</td></tr>
-            <tr><td class="py-2 pr-4">1 งาน</td><td class="py-2 pr-4">100 ตร.ว.</td><td class="py-2">400 ตร.ม.</td></tr>
-            <tr><td class="py-2 pr-4">1 ตารางวา</td><td class="py-2 pr-4">1 ตร.ว.</td><td class="py-2">4 ตร.ม.</td></tr>
-          </tbody>
-        </table>
-      </div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">สูตรและตัวอย่างการคำนวณ</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>แปลงจาก ไร่–งาน–วา เป็น ตารางเมตร:</strong> <code>((ไร่ × 400) + (งาน × 100) + ตารางวา) × 4</code></li>
+            <li><strong>ตัวอย่าง:</strong> ที่ดินขนาด 1 ไร่ 2 งาน 50 ตารางวา = <code>(400 + 200 + 50) = 650 ตารางวา</code> เมื่อคูณ 4 จะได้พื้นที่รวม <strong>2,600 ตารางเมตร</strong></li>
+            <li><strong>แปลงกลับจาก ตารางเมตร เป็น ไร่–งาน–วา:</strong> นำพื้นที่ตารางเมตรหาร 4 เพื่อหาตารางวารวม แล้วหาร 400 เพื่อแยกจำนวนไร่ เศษที่เหลือหาร 100 เพื่อแยกจำนวนงาน</li>
+          </ul>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตัวอย่างการคำนวณจริง</h2>
-      <p>หากมีที่ดิน <strong>1 ไร่ 2 งาน 50 ตารางวา</strong> ให้แปลงเป็นตารางวาก่อน: (1 × 400) + (2 × 100) + 50 = 650 ตารางวา แล้วคูณ 4 จะได้ <strong>2,600 ตารางเมตร</strong></p>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 dark:text-slate-400">ต้องการคำนวณตัวเลขของแปลงที่ดินจริง?</span>
+            <a href="../tools/land-converter.html" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition-colors">เปิดเครื่องมือแปลงหน่วยที่ดิน</a>
+          </div>
+        </article>
+      </section>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ข้อควรระวัง</h2>
-      <p>ในการซื้อขายหรือประเมินราคาจริง ควรตรวจสอบขนาดและรูปแปลงจากโฉนดที่ดินหรือรังวัดให้ตรงกัน รวมถึงดูเงื่อนไขผังเมืองและข้อจำกัดการใช้ประโยชน์เพิ่มเติม</p>
-    </article>
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <footer id="site-footer"></footer>
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
 
   <script src="../assets/app.js"></script>
 </body>
