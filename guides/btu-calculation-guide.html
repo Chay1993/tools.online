@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>วิธีคำนวณ BTU แอร์ให้เหมาะกับขนาดห้องและทิศทางแดด - Tools.online</title>
-  <meta name="description" content="คู่มือคำนวณ BTU แอร์เบื้องต้นตามขนาดพื้นที่ห้อง ตารางเทียบ BTU และปัจจัยความร้อน เช่น แดดส่อง จำนวนคน และอุปกรณ์ไฟฟ้า พร้อมลิงก์เครื่องคำนวณ BTU แอร์">
+  <title>วิธีคำนวณ BTU แอร์ให้เหมาะกับขนาดห้อง - Tools.online</title>
+  <meta name="description" content="ตารางเทียบขนาดห้องกับ BTU แอร์ สูตรคำนวณ ปัจจัยทิศทางแดด จำนวนคน และข้อควรระวังในการเลือกขนาดเครื่องปรับอากาศ">
   <link rel="canonical" href="https://tools.online/guides/btu-calculation-guide.html">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,60 +16,93 @@
 </head>
 <body class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased">
 
-  <header id="site-header"></header>
+  <header id="site-header" class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"></header>
 
-  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
     <nav aria-label="Breadcrumb" class="flex items-center justify-between bg-white dark:bg-slate-900 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
-      <a href="../index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าแรก
+      <a href="index.html" class="font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> กลับหน้าคู่มือทั้งหมด
       </a>
-      <span class="text-slate-500 dark:text-slate-400">คู่มือ & บทความ</span>
+      <a href="../tools/btu-calc.html" class="text-brand-600 dark:text-brand-400 hover:underline font-semibold">เปิดเครื่องมือคำนวณ BTU</a>
     </nav>
 
-    <!-- พื้นที่โฆษณา -->
-    <div class="p-2"><!-- พื้นที่โฆษณา --></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section class="lg:col-span-8 space-y-6">
+        <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
+          <div class="space-y-2">
+            <span class="text-[11px] font-medium px-2.5 py-0.5 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full">อสังหาฯ & งานช่าง</span>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white">วิธีคำนวณ BTU แอร์ให้เหมาะกับขนาดห้อง</h1>
+            <p class="text-xs text-slate-400">อัปเดตล่าสุด: 18 พฤศจิกายน 2026</p>
+          </div>
 
-    <article class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-5 leading-relaxed text-sm text-slate-600 dark:text-slate-300">
-      <h1 class="text-2xl font-bold text-slate-900 dark:text-white">วิธีคำนวณ BTU แอร์ให้เหมาะกับขนาดห้อง</h1>
-      <p><strong>สรุปสั้นๆ:</strong> สูตรประมาณการ BTU แอร์แบบง่ายในเบื้องต้นคือ <strong>พื้นที่ห้อง (กว้าง × ยาว เป็นเมตร) × ตัวคูณความร้อน</strong> โดยห้องทั่วไปที่ไม่โดนแดดจัดมักใช้ตัวคูณราว <strong>700–800 BTU/ตร.ม.</strong> ส่วนห้องที่โดนแดดบ่ายหรือมีแหล่งความร้อนสูงอาจใช้ <strong>850–1,000+ BTU/ตร.ม.</strong></p>
+          <p>การเลือกขนาด BTU ของเครื่องปรับอากาศให้พอดีกับห้องช่วยให้เย็นเร็ว ประหยัดไฟ และยืดอายุคอมเพรสเซอร์ หาก BTU ต่ำเกินไปแอร์จะทำงานหนักตลอดเวลา แต่หากสูงเกินไปคอมเพรสเซอร์จะตัดบ่อยและห้องอาจชื้น</p>
 
-      <div class="p-4 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <span class="text-xs font-medium text-sky-900 dark:text-sky-200">อยากคำนวณตัวเลขตามเงื่อนไขห้องของคุณทันที?</span>
-        <a href="../tools/btu-calc.html" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold bg-brand-600 text-white rounded-xl hover:bg-brand-700">เปิดเครื่องคำนวณ BTU แอร์</a>
-      </div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">สูตรคำนวณ BTU เบื้องต้น</h2>
+          <p class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 font-medium text-slate-900 dark:text-white">
+            BTU = พื้นที่ห้อง (กว้าง × ยาว หน่วยเมตร) × ตัวแปรความร้อนของห้อง
+          </p>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตารางเทียบขนาดพื้นที่และ BTU โดยประมาณ</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse text-xs">
-          <thead>
-            <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white">
-              <th class="py-2 pr-4">ขนาดห้อง (กว้าง × ยาว)</th>
-              <th class="py-2 pr-4">พื้นที่ประมาณ</th>
-              <th class="py-2">BTU แนะนำเบื้องต้น</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-            <tr><td class="py-2 pr-4">3 × 4 เมตร</td><td class="py-2 pr-4">12 ตร.ม.</td><td class="py-2">~9,000 BTU</td></tr>
-            <tr><td class="py-2 pr-4">4 × 4 เมตร</td><td class="py-2 pr-4">16 ตร.ม.</td><td class="py-2">~12,000 BTU</td></tr>
-            <tr><td class="py-2 pr-4">4 × 5 เมตร</td><td class="py-2 pr-4">20 ตร.ม.</td><td class="py-2">~15,000–18,000 BTU</td></tr>
-            <tr><td class="py-2 pr-4">5 × 6 เมตร</td><td class="py-2 pr-4">30 ตร.ม.</td><td class="py-2">~22,000–24,000 BTU</td></tr>
-          </tbody>
-        </table>
-      </div>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>ห้องนอน / ไม่โดนแดดจัด:</strong> ใช้ตัวแปรประมาณ <code>700 – 750</code></li>
+            <li><strong>ห้องทั่วไป / โดนแดดปานกลาง:</strong> ใช้ตัวแปรประมาณ <code>800 – 850</code></li>
+            <li><strong>ห้องรับแขก / โดนแดดบ่าย / ฝ้าติดหลังคา:</strong> ใช้ตัวแปรประมาณ <code>900 – 1,000</code></li>
+            <li><strong>จำนวนผู้ใช้งาน:</strong> หากมีคนอยู่ในห้องประจำมากกว่า 2 คน ควรบวกเพิ่มประมาณ <code>600 – 900 BTU</code> ต่อคน</li>
+          </ul>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ปัจจัยที่ทำให้ต้องบวก BTU เพิ่ม</h2>
-      <ul class="list-disc pl-5 space-y-1.5">
-        <li><strong>ทิศทางแดดและผนังปูนรับแดด:</strong> ห้องชั้นบนสุดหรือผนังที่รับแดดบ่ายโดยตรงจะสะสมความร้อนมากกว่าห้องทั่วไป</li>
-        <li><strong>จำนวนผู้อยู่อาศัยและกิจกรรม:</strong> ห้องนั่งเล่น ห้องทำงาน หรือห้องที่มีคนอยู่หลายคนต่อเนื่องต้องการความเย็นสูงกว่าห้องนอนที่ใช้งานตอนกลางคืน</li>
-        <li><strong>อุปกรณ์ไฟฟ้าและฝ้าเพดาน:</strong> คอมพิวเตอร์หลายเครื่อง ทีวีจอใหญ่ หรือฝ้าเพดานสูงกว่ามาตรฐานล้วนเพิ่มภาระความร้อน</li>
-      </ul>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ตารางเทียบขนาดห้องมาตรฐาน</h2>
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                <tr>
+                  <th class="px-4 py-2.5">พื้นที่ห้อง (ตร.ม.)</th>
+                  <th class="px-4 py-2.5">ห้องนอน (ไม่โดนแดด)</th>
+                  <th class="px-4 py-2.5">ห้องรับแขก / โดนแดด</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                <tr>
+                  <td class="px-4 py-2.5 font-medium text-slate-900 dark:text-white">12 – 15 ตร.ม.</td>
+                  <td class="px-4 py-2.5">9,000 – 12,000 BTU</td>
+                  <td class="px-4 py-2.5">12,000 BTU</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5 font-medium text-slate-900 dark:text-white">16 – 20 ตร.ม.</td>
+                  <td class="px-4 py-2.5">12,000 – 15,000 BTU</td>
+                  <td class="px-4 py-2.5">15,000 – 18,000 BTU</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5 font-medium text-slate-900 dark:text-white">21 – 28 ตร.ม.</td>
+                  <td class="px-4 py-2.5">18,000 BTU</td>
+                  <td class="px-4 py-2.5">24,000 BTU</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <h2 class="text-base font-bold text-slate-900 dark:text-white pt-2">ข้อควรระวังในการเลือกขนาด BTU</h2>
-      <p>การเลือก BTU น้อยเกินไปจะทำให้แอร์ทำงานหนักตลอดเวลา คอมเพรสเซอร์ตัดยาก และเปลืองไฟ ส่วนการเลือก BTU ใหญ่เกินไปมากในห้องเล็กอาจทำให้ความชื้นในห้องไม่สมดุลและตัดบ่อยเกินไป ควรพิจารณาทั้งขนาดห้อง ลักษณะการใช้งาน และประเภทเครื่องปรับอากาศประกอบกันก่อนตัดสินใจครับ</p>
-    </article>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-500 dark:text-slate-400">ลองกรอกขนาดห้องและจำนวนคนเพื่อคำนวณทันที</span>
+            <a href="../tools/btu-calc.html" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition-colors">เปิดเครื่องมือคำนวณ BTU</a>
+          </div>
+        </article>
+      </section>
+
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h2 class="text-sm font-semibold mb-3 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> เครื่องมือยอดนิยม</h2>
+          <ul class="space-y-1 text-sm" id="popular-tools-list"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-sky-500"></i> บทความล่าสุด</h2>
+            <a href="index.html" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">ดูทั้งหมด</a>
+          </div>
+          <ul class="space-y-1 text-sm" id="latest-guides-list"></ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <footer id="site-footer"></footer>
+  <footer id="site-footer" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto"></footer>
 
   <script src="../assets/app.js"></script>
 </body>
