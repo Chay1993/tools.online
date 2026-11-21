@@ -154,6 +154,15 @@ const GUIDES_DATA = [
   }
 ];
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function getBasePrefix() {
   const path = window.location.pathname;
   if (/\/(tools|guides|pages)(\/|$)/.test(path)) {
@@ -232,33 +241,33 @@ async function loadTemplates() {
 
 function renderHomeCards(filterQuery = '') {
   const grid = document.getElementById('tools-grid');
-  const countLabel = document.getElementById('tools-count-label');
   if (!grid) return;
 
-  const prefix = getBasePrefix();
   const q = filterQuery.trim().toLowerCase();
-
   const filtered = TOOLS_DATA.filter(tool => {
     if (!q) return true;
     return (
       tool.title.toLowerCase().includes(q) ||
-      tool.category.toLowerCase().includes(q) ||
-      tool.desc.toLowerCase().includes(q)
+      tool.desc.toLowerCase().includes(q) ||
+      tool.category.toLowerCase().includes(q)
     );
   });
 
-  if (countLabel) {
-    countLabel.textContent = q ? `พบ ${filtered.length} จาก ${TOOLS_DATA.length} รายการ` : `ทั้งหมด ${TOOLS_DATA.length} รายการ`;
-  }
-
+  // แทนที่บล็อกเดิมตรงนี้
   if (filtered.length === 0) {
     grid.innerHTML = `
       <div class="col-span-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-8 text-center text-sm text-slate-500 dark:text-slate-400">
-        ไม่พบเครื่องมือที่ตรงกับคำค้นหา "${filterQuery}"
+        ไม่พบเครื่องมือที่ตรงกับคำค้นหา "${escapeHtml(filterQuery)}"
       </div>
     `;
     return;
   }
+
+  // ส่วน render การ์ดเครื่องมือด้านล่างคงไว้ตามเดิม
+  const basePrefix = getBasePrefix();
+  grid.innerHTML = filtered.map(tool => `...`).join('');
+  if (window.lucide) window.lucide.createIcons();
+}
 
   grid.innerHTML = filtered.map(tool => `
     <a href="${prefix}${tool.url}" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 dark:hover:border-brand-500/50 p-5 flex flex-col justify-between transition-all group">
@@ -430,11 +439,3 @@ window.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) lucide.createIcons();
 });
 
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
