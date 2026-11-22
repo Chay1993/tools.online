@@ -253,7 +253,6 @@ function renderHomeCards(filterQuery = '') {
     );
   });
 
-  // แทนที่บล็อกเดิมตรงนี้
   if (filtered.length === 0) {
     grid.innerHTML = `
       <div class="col-span-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-8 text-center text-sm text-slate-500 dark:text-slate-400">
@@ -263,14 +262,9 @@ function renderHomeCards(filterQuery = '') {
     return;
   }
 
-  // ส่วน render การ์ดเครื่องมือด้านล่างคงไว้ตามเดิม
   const basePrefix = getBasePrefix();
-  grid.innerHTML = filtered.map(tool => `...`).join('');
-  if (window.lucide) window.lucide.createIcons();
-}
-
   grid.innerHTML = filtered.map(tool => `
-    <a href="${prefix}${tool.url}" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 dark:hover:border-brand-500/50 p-5 flex flex-col justify-between transition-all group">
+    <a href="${basePrefix}${tool.url}" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 dark:hover:border-brand-500/50 p-5 flex flex-col justify-between transition-all group">
       <div>
         <div class="flex items-center justify-between mb-3">
           <span class="text-[11px] font-medium px-2.5 py-0.5 ${tool.badgeClass} rounded-full">${tool.category}</span>
@@ -286,7 +280,7 @@ function renderHomeCards(filterQuery = '') {
     </a>
   `).join('');
 
-  if (window.lucide) lucide.createIcons();
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function renderSidebarPopular() {
@@ -307,7 +301,7 @@ function renderSidebarPopular() {
     </li>
   `).join('');
 
-  if (window.lucide) lucide.createIcons();
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function getSortedGuides() {
@@ -438,4 +432,3 @@ window.addEventListener('DOMContentLoaded', () => {
   bindSearchInput();
   if (window.lucide) lucide.createIcons();
 });
-
